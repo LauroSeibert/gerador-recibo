@@ -298,8 +298,23 @@
 
   /* ── PRINT ── */
   @media print {
-    body { background: #fff; padding: 0; }
-    .receipt-wrapper { box-shadow: none; border-color: #999; max-width: 100%; }
+    html, body {
+      height: auto;
+      min-height: 0;
+      background: #fff;
+      padding: 0;
+      margin: 0;
+      display: block; /* remove o flex que reserva 100vh */
+    }
+    .receipt-wrapper {
+      box-shadow: none;
+      border-color: #999;
+      max-width: 100%;
+      page-break-after: avoid;
+      page-break-inside: avoid;
+      break-after: avoid;
+      break-inside: avoid;
+    }
     .btn-print, h1, .tip { display: none; }
     [contenteditable]:hover, [contenteditable]:focus { background: transparent; box-shadow: none; }
     @page { margin: 1.5cm; }
